@@ -1,0 +1,52 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Auth App</h1>
+<h3>Personal Info</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">PROFILE</th>
+            <th><a class="btn btn-dark" asp-action="EditProfile" asp-controller="Home">EDIT</a></td>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <th>PHOTO</th>
+            @if(Model.profilePic != null)
+            {
+                <td>
+                    <div style="max-width: 150px;">
+                        <img src=@Model.profilePic alt="Profile Picture" class="rounded-circle img-fluid border border-dark" style="max-width: 100%; height: auto;">
+                    </div>
+                </td> 
+            }else
+            {
+                <td>
+                    <div style="max-width: 150px;">
+                        <img src="https://t3.ftcdn.net/jpg/00/64/67/80/360_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg" alt="Default profile picture" class="rounded-circle img-fluid border border-dark" style="max-width: 100%; height: auto;">
+                    </div>
+                </td>
+            }   
+        </tr>
+        <tr>
+            <th>NAME</th>
+            <td>@Model.UserName</td>    
+        </tr>
+        <tr>
+            <th>BIO</th>
+            <td>@Model.Bio</td>    
+        </tr>
+        <tr>
+            <th>EMAIL</th>
+            <td>@Model.Email</td>    
+        </tr>
+    </tbody>
+        
+</table>
+<a class="btn btn-danger d-md-block" asp-action="Logout" asp-controller="Auth">Logout</a>
